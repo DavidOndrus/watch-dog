@@ -1,0 +1,25 @@
+﻿<Window x:Class="WatchDog.FirstStartup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tracked Programs" Height="305" Width="501" SizeToContent="WidthAndHeight" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="icons/Zerode-Plump-Search.ico">
+    <Window.Resources>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="Background" Value="#404040"/>
+            <Setter Property="Foreground" Value="Orange"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="listboxStyle" TargetType="ListBox">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Gray">
+        <Rectangle HorizontalAlignment="Left" Height="270" Stroke="Black" VerticalAlignment="Top" Width="491"/>
+        <ListBox Style="{DynamicResource listboxStyle}"  x:Name="trackedPrograms_listB" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="391"/>
+        <Button Style="{DynamicResource btnStyle}" Click="add_btn_Click" x:Name="add_btn" Content="Add..." HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
+        <Button Style="{DynamicResource btnStyle}" Click="remove_btn_Click" x:Name="remove_btn" Content="Remove" HorizontalAlignment="Left" Margin="406,45,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
+        <Button Style="{DynamicResource btnStyle}" Click="save_btn_Click" x:Name="save_btn" Content="SAVE" HorizontalAlignment="Left" Margin="406,229,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
+    </Grid>
+</Window>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="WatchDog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="Window_Loaded"
+        Title="WatchDog" Height="578.638" Width="714.586" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <!-- Specifies the Selection style of ListBoxItems. This changes the forced underlay colors from gray to transparent. -->
+        <Style TargetType="ListBoxItem">
+            <Style.Resources>
+                <!-- This is the color used if the item is selected and the listbox has focus -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Orange"/>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Gray">
+        <TabControl  HorizontalAlignment="Left" Height="536" VerticalAlignment="Top" Width="690">
+            <TabItem Header="Programs">
+                <Grid Background="Gray">
+                    <ListBox x:Name="programs_listB" Background="Gray" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="680">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold" Foreground="#004C99"/>
+                                    <TextBlock Text="{Binding Path}"/>
+                                    <TextBlock>
+                                        <Run Text="Running time [minutes]: " Foreground="White"/>
+                                        <Run Text="{Binding Path=runningTimeInMins, Mode=OneWay}" Foreground="DarkRed" FontWeight="Bold"/>
+                                    </TextBlock>
+                                    <Separator></Separator>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Other">
+                <Grid Background="Gray">
+                    <Button x:Name="addRemove_btn" Click="addRemove_btn_Click" Content="Add/Remove tracked program" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="186"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
